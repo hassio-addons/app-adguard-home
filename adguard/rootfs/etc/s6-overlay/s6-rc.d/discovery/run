@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: AdGuard Home
+# Home Assistant Community App: AdGuard Home
 # Sends discovery information to Home Assistant.
 # ==============================================================================
 declare config

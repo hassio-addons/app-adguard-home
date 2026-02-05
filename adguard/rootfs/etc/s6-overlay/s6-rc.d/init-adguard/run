@@ -2,7 +2,7 @@
 # shellcheck shell=bash
 # shellcheck disable=SC2207
 # ==============================================================================
-# Home Assistant Community Add-on: AdGuard Home
+# Home Assistant Community App: AdGuard Home
 # Handles configuration
 # ==============================================================================
 readonly CONFIG="/data/adguard/AdGuardHome.yaml"
@@ -38,7 +38,7 @@ if bashio::var.has_value "${schema_version+}"; then
         yq --inplace e '.dns.bind_host = "127.0.0.1"' "${CONFIG}"
         bashio::warning
         bashio::warning "AdGuard Home needs to update its configuration schema"
-        bashio::warning "you might need to restart he add-on once more to complete"
+        bashio::warning "you might need to restart the app once more to complete"
         bashio::warning "the upgrade process."
         bashio::warning
         bashio::exit.ok
@@ -75,7 +75,7 @@ for interface in "${interfaces[@]}"; do
     done
 
 done
-# Bind to addon IP address
+# Bind to app IP address
 hosts+=($(bashio::addon.ip_address))
 # Bind to localhost ip addresses as well.
 hosts+=("127.0.0.1")
