@@ -1,6 +1,6 @@
 #!/command/with-contenv bashio
 # ==============================================================================
-# Home Assistant Community Add-on: AdGuard Home
+# Home Assistant Community App: AdGuard Home
 # Take down the S6 supervision tree when Nginx fails
 # ==============================================================================
 declare exit_code

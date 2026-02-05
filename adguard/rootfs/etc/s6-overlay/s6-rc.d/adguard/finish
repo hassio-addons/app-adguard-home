@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: AdGuard Home
+# Home Assistant Community App: AdGuard Home
 # Take down the S6 supervision tree when Adguard Home fails
 # ==============================================================================
 declare exit_code

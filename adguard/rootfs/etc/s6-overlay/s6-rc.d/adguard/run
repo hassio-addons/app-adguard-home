@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: AdGuard Home
+# Home Assistant Community App: AdGuard Home
 # Runs the AdGuard Home server
 # ==============================================================================
 declare -a options
