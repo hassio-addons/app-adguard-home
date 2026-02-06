@@ -12,7 +12,7 @@ ARG ADGUARD_HOME_VERSION="v0.107.71"
 # hadolint ignore=DL3003,SC2155
 RUN \
     apk add --no-cache \
-        nginx=1.28.0-r8 \
+        nginx=1.28.2-r0 \
         yq-go=4.49.2-r3 \
     \
     && if [[ "${BUILD_ARCH}" = "aarch64" ]]; then ARCH="arm64"; fi \
