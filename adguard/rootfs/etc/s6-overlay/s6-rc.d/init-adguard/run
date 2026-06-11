@@ -18,7 +18,7 @@ if ! bashio::fs.file_exists "${CONFIG}"; then
     cp /etc/adguard/AdGuardHome.yaml "${CONFIG}"
 fi
 
-port=$(bashio::addon.port "53/udp") \
+port=$(bashio::app.port "53/udp") \
   yq e --inplace '.dns.port = env(port)' "${CONFIG}" \
     || bashio::exit.nok 'Failed updating AdGuardHome DNS port'
 
@@ -76,7 +76,7 @@ for interface in "${interfaces[@]}"; do
 
 done
 # Bind to app IP address
-hosts+=($(bashio::addon.ip_address))
+hosts+=($(bashio::app.ip_address))
 # Bind to localhost ip addresses as well.
 hosts+=("127.0.0.1")
 hosts+=("::1")
