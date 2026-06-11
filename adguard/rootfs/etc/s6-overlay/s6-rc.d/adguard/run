@@ -14,7 +14,7 @@ options+=(--work-dir /data/adguard)
 options+=(--no-check-update)
 
 if bashio::debug; then
-  option+=(--verbose)
+  options+=(--verbose)
 fi
 
 # RUN AdGuard Home server
