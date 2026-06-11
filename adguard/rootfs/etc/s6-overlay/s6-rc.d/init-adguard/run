@@ -25,7 +25,7 @@ port=$(bashio::app.port "53/udp") \
 
 # Bump schema version in case this is an upgrade path
 schema_version=$(yq e '.schema_version // ""' "${CONFIG}")
-if bashio::var.has_value "${schema_version+}"; then
+if bashio::var.has_value "${schema_version}"; then
     if (( schema_version == 7 )); then
         # Clean up old interface bind formats
         yq --inplace e 'del(.dns.bind_host)' "${CONFIG}"
