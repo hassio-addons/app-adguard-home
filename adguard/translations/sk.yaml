@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Úroveň protokolovania
+    description: >-
+      Ovláda úroveň výstupu protokolu aplikácie a možno ju zmeniť tak, aby
+      bola podrobnejšia alebo menej podrobná, čo môže byť užitočné pri riešení
+      neznámeho problému. Každá úroveň automaticky zahŕňa správy zo závažnejšej
+      úrovne.
+  ssl:
+    name: SSL
+    description: >-
+      Povolí/zakáže šifrované SSL (HTTPS) pre priamy prístup k aplikácii. Toto
+      nastavenie nemá vplyv na službu Ingress.
+  certfile:
+    name: Súbor certifikátu
+    description: >-
+      Súbor certifikátu, ktorý sa použije pre SSL. Súbor musí byť uložený v
+      adresári `/ssl/`.
+  keyfile:
+    name: Súbor súkromného kľúča
+    description: >-
+      Súbor súkromného kľúča, ktorý sa použije pre SSL. Súbor musí byť uložený
+      v adresári `/ssl/`.
+  leave_front_door_open:
+    name: Ponechať vstupné dvere otvorené
+    description: >-
+      Zakáže overovanie v AdGuard Home, keď je povolené. Dôrazne odporúčame
+      toto nepovoľovať, a to ani vo vnútornej sieti. Používate na vlastné
+      riziko!
+network:
+  53/udp:
+    description: Port servera DNS
+  80/tcp:
+    description: Webové rozhranie (nie je potrebné pre Ingress)

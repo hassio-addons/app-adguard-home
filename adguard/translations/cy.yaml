@@ -1,0 +1,36 @@
+---
+configuration:
+  log_level:
+    name: Lefel cofnodi
+    description: >-
+      Yn rheoli lefel yr allbwn cofnodi gan yr ap a gellir ei newid i fod yn
+      fwy neu'n llai manwl, a allai fod yn ddefnyddiol pan fyddwch yn delio
+      ag anhawster anhysbys. Mae pob lefel yn cynnwys negeseuon lefel fwy
+      difrifol yn awtomatig.
+  ssl:
+    name: SSL
+    description: >-
+      Yn galluogi/analluogi SSL (HTTPS) wedi'i amgryptio ar gyfer mynediad
+      uniongyrchol i'r ap. Nid yw'r gosodiad hwn yn cael unrhyw effaith ar y
+      gwasanaeth Ingress.
+  certfile:
+    name: Ffeil tystysgrif
+    description: >-
+      Y ffeil tystysgrif i'w defnyddio ar gyfer SSL. Rhaid storio'r ffeil yn
+      y cyfeiriadur `/ssl/`.
+  keyfile:
+    name: Ffeil allwedd breifat
+    description: >-
+      Y ffeil allwedd breifat i'w defnyddio ar gyfer SSL. Rhaid storio'r
+      ffeil yn y cyfeiriadur `/ssl/`.
+  leave_front_door_open:
+    name: Gadael y drws ffrynt ar agor
+    description: >-
+      Yn analluogi dilysu ar AdGuard Home pan fydd wedi'i alluogi. Rydym yn
+      argymell yn gryf i beidio â galluogi hyn, hyd yn oed ar rwydwaith
+      mewnol. Defnyddiwch ar eich menter eich hun!
+network:
+  53/udp:
+    description: Porth gweinydd DNS
+  80/tcp:
+    description: Rhyngwyneb gwe (nid yw'n ofynnol ar gyfer Ingress)

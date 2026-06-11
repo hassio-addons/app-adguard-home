@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Livello di log
+    description: >-
+      Controlla il livello di output del log dell'app e può essere modificato
+      per essere più o meno dettagliato, il che può essere utile quando si
+      affronta un problema sconosciuto. Ogni livello include automaticamente i
+      messaggi di un livello più grave.
+  ssl:
+    name: SSL
+    description: >-
+      Abilita/Disabilita SSL crittografato (HTTPS) per l'accesso diretto
+      all'app. Questa impostazione non ha effetto sul servizio Ingress.
+  certfile:
+    name: File del certificato
+    description: >-
+      Il file del certificato da utilizzare per SSL. Il file deve essere
+      archiviato nella directory `/ssl/`.
+  keyfile:
+    name: File della chiave privata
+    description: >-
+      Il file della chiave privata da utilizzare per SSL. Il file deve essere
+      archiviato nella directory `/ssl/`.
+  leave_front_door_open:
+    name: Lascia aperta la porta d'ingresso
+    description: >-
+      Disabilita l'autenticazione su AdGuard Home quando è abilitato.
+      Sconsigliamo vivamente di abilitare questa opzione, anche su una rete
+      interna. Usala a tuo rischio e pericolo!
+network:
+  53/udp:
+    description: Porta del server DNS
+  80/tcp:
+    description: Interfaccia web (non richiesta per Ingress)

@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Leibhéal logála
+    description: >-
+      Rialaíonn sé leibhéal an aschuir logála ón aip agus is féidir é a athrú
+      le bheith níos foclaí nó níos lú foclaí, rud a d'fhéadfadh a bheith
+      úsáideach nuair atá tú ag déileáil le fadhb anaithnid. Cuimsíonn gach
+      leibhéal go huathoibríoch teachtaireachtaí leibhéil níos déine.
+  ssl:
+    name: SSL
+    description: >-
+      Cumasaíonn/Díchumasaíonn sé SSL criptithe (HTTPS) le haghaidh rochtana
+      dírí ar an aip. Níl aon éifeacht ag an socrú seo ar an tseirbhís Ingress.
+  certfile:
+    name: Comhad teastais
+    description: >-
+      An comhad teastais le húsáid le haghaidh SSL. Caithfear an comhad a
+      stóráil sa chomhadlann `/ssl/`.
+  keyfile:
+    name: Comhad eochrach príobháidí
+    description: >-
+      An comhad eochrach príobháidí le húsáid le haghaidh SSL. Caithfear an
+      comhad a stóráil sa chomhadlann `/ssl/`.
+  leave_front_door_open:
+    name: Fág an doras tosaigh ar oscailt
+    description: >-
+      Díchumasaíonn sé fíordheimhniú ar AdGuard Home nuair a chumasaítear é.
+      Molaimid go láidir gan é seo a chumasú, fiú ar líonra inmheánach. Bain
+      úsáid as ar do phriacal féin!
+network:
+  53/udp:
+    description: Port an fhreastalaí DNS
+  80/tcp:
+    description: Comhéadan gréasáin (níl sé riachtanach le haghaidh Ingress)

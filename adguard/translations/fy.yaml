@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Lochnivo
+    description: >-
+      Kontrolearret it nivo fan de lochútfier fan de app en kin oanpast wurde
+      om mear of minder wiidweidich te wêzen, wat fan pas komme kin as jo mei
+      in ûnbekend probleem dwaande binne. Elk nivo befettet automatysk de
+      berjochten fan in earnstiger nivo.
+  ssl:
+    name: SSL
+    description: >-
+      Skeakelt fersifere SSL (HTTPS) yn/út foar streekrjochte tagong ta de
+      app. Dizze ynstelling hat gjin ynfloed op de Ingress-tsjinst.
+  certfile:
+    name: Sertifikaatbestân
+    description: >-
+      It sertifikaatbestân dat foar SSL brûkt wurdt. It bestân moat opslein
+      wurde yn de map `/ssl/`.
+  keyfile:
+    name: Privee-kaaibestân
+    description: >-
+      It privee-kaaibestân dat foar SSL brûkt wurdt. It bestân moat opslein
+      wurde yn de map `/ssl/`.
+  leave_front_door_open:
+    name: Foardoar iepen litte
+    description: >-
+      Skeakelt autentikaasje op AdGuard Home út as it ynskeakele is. Wy riede
+      sterk ôf om dit yn te skeakeljen, sels op in ynterne netwurk. Brûk op
+      eigen risiko!
+network:
+  53/udp:
+    description: DNS-serverpoarte
+  80/tcp:
+    description: Webinterface (net nedich foar Ingress)

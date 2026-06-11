@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Logniveau
+    description: >-
+      Styrer niveauet af logoutput fra appen og kan ændres til at være mere
+      eller mindre detaljeret, hvilket kan være nyttigt, når du har med et
+      ukendt problem at gøre. Hvert niveau inkluderer automatisk meddelelserne
+      fra et mere alvorligt niveau.
+  ssl:
+    name: SSL
+    description: >-
+      Aktiverer/Deaktiverer krypteret SSL (HTTPS) for direkte adgang til
+      appen. Denne indstilling har ingen effekt på Ingress-tjenesten.
+  certfile:
+    name: Certifikatfil
+    description: >-
+      Certifikatfilen, der skal bruges til SSL. Filen skal være gemt i
+      mappen `/ssl/`.
+  keyfile:
+    name: Privat nøglefil
+    description: >-
+      Den private nøglefil, der skal bruges til SSL. Filen skal være gemt i
+      mappen `/ssl/`.
+  leave_front_door_open:
+    name: Lad hoveddøren stå åben
+    description: >-
+      Deaktiverer godkendelse på AdGuard Home, når den er aktiveret. Vi
+      fraråder kraftigt at aktivere dette, selv på et internt netværk. Brug
+      på eget ansvar!
+network:
+  53/udp:
+    description: DNS-serverport
+  80/tcp:
+    description: Webgrænseflade (ikke påkrævet for Ingress)

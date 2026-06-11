@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Poziom logowania
+    description: >-
+      Kontroluje poziom szczegółowości dziennika generowanego przez aplikację
+      i może zostać zmieniony na bardziej lub mniej szczegółowy, co może być
+      przydatne podczas rozwiązywania nieznanego problemu. Każdy poziom
+      automatycznie obejmuje komunikaty z poziomu o wyższym priorytecie.
+  ssl:
+    name: SSL
+    description: >-
+      Włącza/wyłącza szyfrowane SSL (HTTPS) dla bezpośredniego dostępu do
+      aplikacji. To ustawienie nie ma wpływu na usługę Ingress.
+  certfile:
+    name: Plik certyfikatu
+    description: >-
+      Plik certyfikatu używany dla SSL. Plik musi być przechowywany w
+      katalogu `/ssl/`.
+  keyfile:
+    name: Plik klucza prywatnego
+    description: >-
+      Plik klucza prywatnego używany dla SSL. Plik musi być przechowywany w
+      katalogu `/ssl/`.
+  leave_front_door_open:
+    name: Pozostaw drzwi wejściowe otwarte
+    description: >-
+      Wyłącza uwierzytelnianie w AdGuard Home, gdy jest włączone. Zdecydowanie
+      odradzamy włączanie tej opcji, nawet w sieci wewnętrznej. Używasz na
+      własne ryzyko!
+network:
+  53/udp:
+    description: Port serwera DNS
+  80/tcp:
+    description: Interfejs webowy (niewymagany dla Ingress)

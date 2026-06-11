@@ -1,0 +1,34 @@
+---
+configuration:
+  log_level:
+    name: ログレベル
+    description: >-
+      アプリによるログ出力のレベルを制御し、より詳細または簡潔になるよう変更
+      できます。これは未知の問題に対処する際に役立つ場合があります。各レベル
+      には、より深刻なレベルのメッセージが自動的に含まれます。
+  ssl:
+    name: SSL
+    description: >-
+      アプリへの直接アクセス用に暗号化された SSL (HTTPS) を有効化/無効化
+      します。この設定は Ingress サービスには影響しません。
+  certfile:
+    name: 証明書ファイル
+    description: >-
+      SSL に使用する証明書ファイルです。ファイルは `/ssl/`
+      ディレクトリに保存する必要があります。
+  keyfile:
+    name: 秘密鍵ファイル
+    description: >-
+      SSL に使用する秘密鍵ファイルです。ファイルは `/ssl/`
+      ディレクトリに保存する必要があります。
+  leave_front_door_open:
+    name: 玄関のドアを開けたままにする
+    description: >-
+      有効にすると AdGuard Home の認証を無効化します。内部ネットワーク
+      であっても、これを有効にすることは強くお勧めしません。自己責任で
+      ご使用ください。
+network:
+  53/udp:
+    description: DNS サーバーポート
+  80/tcp:
+    description: ウェブインターフェース (Ingress には不要)

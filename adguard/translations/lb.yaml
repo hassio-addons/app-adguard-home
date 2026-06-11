@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Log-Niveau
+    description: >-
+      Steiert d'Niveau vun der Log-Ausgab vun der App a kann méi oder manner
+      ausféierlech agestallt ginn, wat nëtzlech ka sinn, wann Dir mat engem
+      onbekannte Problem ze dinn hutt. All Niveau enthält automatesch d'Messagen
+      vun engem méi schwéieren Niveau.
+  ssl:
+    name: SSL
+    description: >-
+      Aktivéiert/Deaktivéiert verschlësselt SSL (HTTPS) fir den direkten Zougrëff
+      op d'App. Dës Astellung huet keen Afloss op den Ingress-Service.
+  certfile:
+    name: Zertifikatsdatei
+    description: >-
+      D'Zertifikatsdatei déi fir SSL ze benotzen ass. D'Datei muss am
+      `/ssl/`-Verzeechnes gespäichert sinn.
+  keyfile:
+    name: Privat Schlësseldatei
+    description: >-
+      D'privat Schlësseldatei déi fir SSL ze benotzen ass. D'Datei muss am
+      `/ssl/`-Verzeechnes gespäichert sinn.
+  leave_front_door_open:
+    name: Viischt Dier oplooss
+    description: >-
+      Deaktivéiert d'Authentifikatioun op AdGuard Home wann aktivéiert. Mir
+      roden staark dovun of dëst z'aktivéieren, och an engem internen Netzwierk.
+      Benotzung op eege Risiko!
+network:
+  53/udp:
+    description: DNS-Server-Port
+  80/tcp:
+    description: Web-Interface (net néideg fir Ingress)

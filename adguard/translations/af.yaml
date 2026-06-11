@@ -1,0 +1,36 @@
+---
+configuration:
+  log_level:
+    name: Loginvlak
+    description: >-
+      Beheer die vlak van loguitvoer deur die toepassing en kan verander word
+      om meer of minder uitvoerig te wees, wat nuttig kan wees wanneer jy met
+      'n onbekende probleem te doen het. Elke vlak sluit outomaties die
+      boodskappe van 'n ernstiger vlak in.
+  ssl:
+    name: SSL
+    description: >-
+      Aktiveer/deaktiveer geënkripteerde SSL (HTTPS) vir direkte toegang tot
+      die toepassing. Hierdie instelling het geen effek op die Ingress-diens
+      nie.
+  certfile:
+    name: Sertifikaatlêer
+    description: >-
+      Die sertifikaatlêer om vir SSL te gebruik. Die lêer moet in die
+      `/ssl/`-gids gestoor word.
+  keyfile:
+    name: Privaatsleutellêer
+    description: >-
+      Die privaatsleutellêer om vir SSL te gebruik. Die lêer moet in die
+      `/ssl/`-gids gestoor word.
+  leave_front_door_open:
+    name: Laat voordeur oop
+    description: >-
+      Deaktiveer verifikasie op AdGuard Home wanneer dit geaktiveer is. Ons
+      raai sterk daarteen aan om dit te aktiveer, selfs op 'n interne netwerk.
+      Gebruik op jou eie risiko!
+network:
+  53/udp:
+    description: DNS-bedienerpoort
+  80/tcp:
+    description: Webkoppelvlak (nie nodig vir Ingress nie)

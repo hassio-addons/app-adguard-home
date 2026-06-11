@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Protokola nivelo
+    description: >-
+      Regas la nivelon de protokola eligo de la aplikaĵo kaj povas esti
+      ŝanĝita por esti pli aŭ malpli detala, kio povus esti utila kiam vi
+      traktas nekonatan problemon. Ĉiu nivelo aŭtomate inkluzivas la mesaĝojn
+      de pli grava nivelo.
+  ssl:
+    name: SSL
+    description: >-
+      Ebligas/Malebligas ĉifritan SSL (HTTPS) por rekta aliro al la aplikaĵo.
+      Ĉi tiu agordo ne efikas sur la servo Ingress.
+  certfile:
+    name: Atestila dosiero
+    description: >-
+      La atestila dosiero uzota por SSL. La dosiero devas esti konservita en
+      la dosierujo `/ssl/`.
+  keyfile:
+    name: Privata ŝlosila dosiero
+    description: >-
+      La privata ŝlosila dosiero uzota por SSL. La dosiero devas esti
+      konservita en la dosierujo `/ssl/`.
+  leave_front_door_open:
+    name: Lasi la ĉefpordon malfermita
+    description: >-
+      Malebligas aŭtentigon ĉe AdGuard Home kiam ĝi estas ebligita. Ni forte
+      malrekomendas ebligi ĉi tion, eĉ en interna reto. Uzu je via propra
+      risko!
+network:
+  53/udp:
+    description: Pordo de DNS-servilo
+  80/tcp:
+    description: Reta interfaco (ne necesa por Ingress)

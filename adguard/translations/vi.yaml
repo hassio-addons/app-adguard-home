@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Cấp độ nhật ký
+    description: >-
+      Kiểm soát cấp độ đầu ra nhật ký của ứng dụng và có thể được thay đổi để
+      chi tiết nhiều hơn hoặc ít hơn, điều này có thể hữu ích khi bạn đang xử
+      lý một sự cố không xác định. Mỗi cấp độ tự động bao gồm các thông báo
+      của cấp độ nghiêm trọng hơn.
+  ssl:
+    name: SSL
+    description: >-
+      Bật/tắt mã hóa SSL (HTTPS) để truy cập trực tiếp vào ứng dụng. Cài đặt
+      này không ảnh hưởng đến dịch vụ Ingress.
+  certfile:
+    name: Tệp chứng chỉ
+    description: >-
+      Tệp chứng chỉ sử dụng cho SSL. Tệp phải được lưu trữ trong thư mục
+      `/ssl/`.
+  keyfile:
+    name: Tệp khóa riêng tư
+    description: >-
+      Tệp khóa riêng tư sử dụng cho SSL. Tệp phải được lưu trữ trong thư mục
+      `/ssl/`.
+  leave_front_door_open:
+    name: Để cửa trước mở
+    description: >-
+      Tắt xác thực trên AdGuard Home khi được bật. Chúng tôi đặc biệt khuyên
+      bạn không nên bật tùy chọn này, ngay cả trên mạng nội bộ. Sử dụng với
+      rủi ro của riêng bạn!
+network:
+  53/udp:
+    description: Cổng máy chủ DNS
+  80/tcp:
+    description: Giao diện web (không bắt buộc đối với Ingress)

@@ -1,0 +1,36 @@
+---
+configuration:
+  log_level:
+    name: Lokitaso
+    description: >-
+      Ohjaa sovelluksen lokitulosteen tasoa, ja sitä voidaan muuttaa
+      yksityiskohtaisemmaksi tai vähemmän yksityiskohtaiseksi, mistä voi olla
+      hyötyä, kun selvität tuntematonta ongelmaa. Jokainen taso sisältää
+      automaattisesti vakavamman tason viestit.
+  ssl:
+    name: SSL
+    description: >-
+      Ottaa käyttöön / poistaa käytöstä salatun SSL:n (HTTPS) sovelluksen
+      suoraa käyttöä varten. Tällä asetuksella ei ole vaikutusta
+      Ingress-palveluun.
+  certfile:
+    name: Varmennetiedosto
+    description: >-
+      SSL:ää varten käytettävä varmennetiedosto. Tiedosto on tallennettava
+      hakemistoon `/ssl/`.
+  keyfile:
+    name: Yksityisen avaimen tiedosto
+    description: >-
+      SSL:ää varten käytettävä yksityisen avaimen tiedosto. Tiedosto on
+      tallennettava hakemistoon `/ssl/`.
+  leave_front_door_open:
+    name: Jätä etuovi auki
+    description: >-
+      Poistaa käytöstä todennuksen AdGuard Homessa, kun tämä on käytössä.
+      Suosittelemme vahvasti, ettet ota tätä käyttöön edes sisäverkossa.
+      Käyttö omalla vastuulla!
+network:
+  53/udp:
+    description: DNS-palvelimen portti
+  80/tcp:
+    description: Verkkokäyttöliittymä (ei vaadita Ingressille)

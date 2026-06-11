@@ -1,0 +1,34 @@
+---
+configuration:
+  log_level:
+    name: Žurnalo lygis
+    description: >-
+      Valdo programos žurnalo išvesties lygį ir gali būti keičiamas, kad būtų
+      daugiau ar mažiau išsamus, o tai gali būti naudinga, kai susiduriate su
+      nežinoma problema. Kiekvienas lygis automatiškai apima sunkesnio lygio
+      pranešimus.
+  ssl:
+    name: SSL
+    description: >-
+      Įjungia/išjungia šifruotą SSL (HTTPS) tiesioginei prieigai prie programos.
+      Šis nustatymas neturi įtakos Ingress paslaugai.
+  certfile:
+    name: Sertifikato failas
+    description: >-
+      Sertifikato failas, naudojamas SSL. Failas turi būti saugomas
+      `/ssl/` kataloge.
+  keyfile:
+    name: Privataus rakto failas
+    description: >-
+      Privataus rakto failas, naudojamas SSL. Failas turi būti saugomas
+      `/ssl/` kataloge.
+  leave_front_door_open:
+    name: Palikti priekines duris atviras
+    description: >-
+      Įjungus išjungia autentifikavimą AdGuard Home. Primygtinai patariame to
+      neįjungti, net vidiniame tinkle. Naudokite savo pačių rizika!
+network:
+  53/udp:
+    description: DNS serverio prievadas
+  80/tcp:
+    description: Žiniatinklio sąsaja (nereikalinga Ingress)

@@ -1,0 +1,36 @@
+---
+configuration:
+  log_level:
+    name: Niveli i regjistrimit
+    description: >-
+      Kontrollon nivelin e daljes së regjistrit nga aplikacioni dhe mund të
+      ndryshohet që të jetë më shumë ose më pak i detajuar, gjë që mund të
+      jetë e dobishme kur përballeni me një problem të panjohur. Çdo nivel
+      përfshin automatikisht mesazhet e një niveli më të rëndë.
+  ssl:
+    name: SSL
+    description: >-
+      Aktivizon/çaktivizon SSL të enkriptuar (HTTPS) për qasje të
+      drejtpërdrejtë në aplikacion. Ky cilësim nuk ka efekt mbi shërbimin
+      Ingress.
+  certfile:
+    name: Skedari i certifikatës
+    description: >-
+      Skedari i certifikatës që do të përdoret për SSL. Skedari duhet të
+      ruhet në direktorinë `/ssl/`.
+  keyfile:
+    name: Skedari i çelësit privat
+    description: >-
+      Skedari i çelësit privat që do të përdoret për SSL. Skedari duhet të
+      ruhet në direktorinë `/ssl/`.
+  leave_front_door_open:
+    name: Lëre derën e përparme hapur
+    description: >-
+      Çaktivizon vërtetimin në AdGuard Home kur është i aktivizuar. Ne ju
+      këshillojmë fuqimisht të mos e aktivizoni këtë, edhe në një rrjet të
+      brendshëm. Përdoreni në përgjegjësinë tuaj!
+network:
+  53/udp:
+    description: Porti i serverit DNS
+  80/tcp:
+    description: Ndërfaqja e uebit (nuk kërkohet për Ingress)

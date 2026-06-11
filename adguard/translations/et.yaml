@@ -1,0 +1,33 @@
+---
+configuration:
+  log_level:
+    name: Logitase
+    description: >-
+      Juhib rakenduse logiväljundi taset ja seda saab muuta rohkem või vähem
+      üksikasjalikuks, mis võib olla kasulik tundmatu probleemiga
+      tegelemisel. Iga tase sisaldab automaatselt raskema taseme teateid.
+  ssl:
+    name: SSL
+    description: >-
+      Lubab/keelab krüpteeritud SSL-i (HTTPS) rakendusele otsejuurdepääsuks.
+      See säte ei mõjuta Ingress-teenust.
+  certfile:
+    name: Sertifikaadifail
+    description: >-
+      SSL-i jaoks kasutatav sertifikaadifail. Fail tuleb salvestada kataloogi
+      `/ssl/`.
+  keyfile:
+    name: Privaatvõtme fail
+    description: >-
+      SSL-i jaoks kasutatav privaatvõtme fail. Fail tuleb salvestada
+      kataloogi `/ssl/`.
+  leave_front_door_open:
+    name: Jäta esiuks lahti
+    description: >-
+      Keelab lubamisel AdGuard Home'i autentimise. Soovitame tungivalt seda
+      mitte lubada, isegi mitte sisevõrgus. Kasutamine omal vastutusel!
+network:
+  53/udp:
+    description: DNS-serveri port
+  80/tcp:
+    description: Veebiliides (ei ole Ingressi jaoks vajalik)

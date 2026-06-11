@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Annálastig
+    description: >-
+      Stýrir umfangi annálaúttaks forritsins og hægt er að breyta því þannig
+      að það verði ítarlegra eða minna ítarlegt, sem getur verið gagnlegt
+      þegar þú glímir við óþekkt vandamál. Hvert stig inniheldur sjálfkrafa
+      skilaboð af alvarlegra stigi.
+  ssl:
+    name: SSL
+    description: >-
+      Virkjar/Slekkur á dulkóðuðu SSL (HTTPS) fyrir beinan aðgang að forritinu.
+      Þessi stilling hefur engin áhrif á Ingress þjónustuna.
+  certfile:
+    name: Vottorðsskrá
+    description: >-
+      Vottorðsskráin sem á að nota fyrir SSL. Skráin verður að vera geymd í
+      `/ssl/` möppunni.
+  keyfile:
+    name: Einkalykilsskrá
+    description: >-
+      Einkalykilsskráin sem á að nota fyrir SSL. Skráin verður að vera geymd í
+      `/ssl/` möppunni.
+  leave_front_door_open:
+    name: Skilja útidyrnar eftir opnar
+    description: >-
+      Slekkur á auðkenningu á AdGuard Home þegar það er virkjað. Við ráðleggjum
+      eindregið gegn því að virkja þetta, jafnvel á innra neti. Notaðu á eigin
+      ábyrgð!
+network:
+  53/udp:
+    description: Gátt DNS þjóns
+  80/tcp:
+    description: Vefviðmót (ekki krafist fyrir Ingress)

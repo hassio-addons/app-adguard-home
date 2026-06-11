@@ -1,0 +1,36 @@
+---
+configuration:
+  log_level:
+    name: Günlük seviyesi
+    description: >-
+      Uygulama tarafından üretilen günlük çıktısının seviyesini kontrol eder
+      ve daha ayrıntılı ya da daha az ayrıntılı olacak şekilde değiştirilebilir;
+      bu, bilinmeyen bir sorunla uğraşırken yararlı olabilir. Her seviye, daha
+      ciddi bir seviyenin mesajlarını otomatik olarak içerir.
+  ssl:
+    name: SSL
+    description: >-
+      Uygulamaya doğrudan erişim için şifreli SSL (HTTPS) özelliğini
+      etkinleştirir/devre dışı bırakır. Bu ayarın Ingress hizmeti üzerinde
+      hiçbir etkisi yoktur.
+  certfile:
+    name: Sertifika dosyası
+    description: >-
+      SSL için kullanılacak sertifika dosyası. Dosya, `/ssl/` dizininde
+      saklanmalıdır.
+  keyfile:
+    name: Özel anahtar dosyası
+    description: >-
+      SSL için kullanılacak özel anahtar dosyası. Dosya, `/ssl/` dizininde
+      saklanmalıdır.
+  leave_front_door_open:
+    name: Ön kapıyı açık bırak
+    description: >-
+      Etkinleştirildiğinde AdGuard Home üzerindeki kimlik doğrulamasını devre
+      dışı bırakır. Dahili bir ağda bile olsa, bunu etkinleştirmemenizi
+      şiddetle tavsiye ederiz. Kullanım riski size aittir!
+network:
+  53/udp:
+    description: DNS sunucu bağlantı noktası
+  80/tcp:
+    description: Web arayüzü (Ingress için gerekli değildir)

@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Nivel de jurnalizare
+    description: >-
+      Controlează nivelul de detaliu al jurnalului generat de aplicație și
+      poate fi modificat pentru a fi mai mult sau mai puțin detaliat, ceea ce
+      poate fi util atunci când vă confruntați cu o problemă necunoscută.
+      Fiecare nivel include automat mesajele dintr-un nivel mai sever.
+  ssl:
+    name: SSL
+    description: >-
+      Activează/dezactivează SSL criptat (HTTPS) pentru acces direct la
+      aplicație. Această setare nu are niciun efect asupra serviciului Ingress.
+  certfile:
+    name: Fișier certificat
+    description: >-
+      Fișierul de certificat utilizat pentru SSL. Fișierul trebuie să fie
+      stocat în directorul `/ssl/`.
+  keyfile:
+    name: Fișier cheie privată
+    description: >-
+      Fișierul de cheie privată utilizat pentru SSL. Fișierul trebuie să fie
+      stocat în directorul `/ssl/`.
+  leave_front_door_open:
+    name: Lasă ușa din față deschisă
+    description: >-
+      Dezactivează autentificarea în AdGuard Home atunci când este activată.
+      Vă recomandăm cu insistență să nu activați această opțiune, chiar și
+      într-o rețea internă. Utilizați pe propriul risc!
+network:
+  53/udp:
+    description: Port server DNS
+  80/tcp:
+    description: Interfață web (nu este necesară pentru Ingress)

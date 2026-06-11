@@ -1,0 +1,29 @@
+---
+configuration:
+  log_level:
+    name: 日誌層級
+    description: >-
+      控制應用程式的日誌輸出層級，可以變更為更詳細或更簡略，這在您處理未知問題時可能很有用。
+      每個層級都會自動包含更嚴重層級的訊息。
+  ssl:
+    name: SSL
+    description: >-
+      啟用/停用加密的 SSL (HTTPS) 以直接存取應用程式。此設定對 Ingress 服務沒有影響。
+  certfile:
+    name: 憑證檔案
+    description: >-
+      用於 SSL 的憑證檔案。該檔案必須儲存在 `/ssl/` 目錄中。
+  keyfile:
+    name: 私密金鑰檔案
+    description: >-
+      用於 SSL 的私密金鑰檔案。該檔案必須儲存在 `/ssl/` 目錄中。
+  leave_front_door_open:
+    name: 讓前門敞開
+    description: >-
+      啟用時會停用 AdGuard Home 上的身份驗證。我們強烈建議不要啟用此選項，即使在內部網路上也是如此。
+      使用風險自負！
+network:
+  53/udp:
+    description: DNS 伺服器連接埠
+  80/tcp:
+    description: Web 介面（Ingress 不需要）

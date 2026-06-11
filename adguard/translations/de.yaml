@@ -1,0 +1,36 @@
+---
+configuration:
+  log_level:
+    name: Protokollierungsstufe
+    description: >-
+      Steuert die Detailstufe der Protokollausgabe der App und kann mehr oder
+      weniger ausführlich eingestellt werden, was nützlich sein kann, wenn Sie
+      mit einem unbekannten Problem zu tun haben. Jede Stufe schließt
+      automatisch die Meldungen einer schwerwiegenderen Stufe ein.
+  ssl:
+    name: SSL
+    description: >-
+      Aktiviert/Deaktiviert verschlüsseltes SSL (HTTPS) für den direkten
+      Zugriff auf die App. Diese Einstellung hat keine Auswirkung auf den
+      Ingress-Dienst.
+  certfile:
+    name: Zertifikatsdatei
+    description: >-
+      Die für SSL zu verwendende Zertifikatsdatei. Die Datei muss im
+      Verzeichnis `/ssl/` gespeichert sein.
+  keyfile:
+    name: Datei mit privatem Schlüssel
+    description: >-
+      Die für SSL zu verwendende Datei mit dem privaten Schlüssel. Die Datei
+      muss im Verzeichnis `/ssl/` gespeichert sein.
+  leave_front_door_open:
+    name: Vordertür offen lassen
+    description: >-
+      Deaktiviert die Authentifizierung bei AdGuard Home, wenn aktiviert. Wir
+      raten dringend davon ab, dies zu aktivieren, selbst in einem internen
+      Netzwerk. Nutzung auf eigene Gefahr!
+network:
+  53/udp:
+    description: DNS-Server-Port
+  80/tcp:
+    description: Weboberfläche (nicht erforderlich für Ingress)

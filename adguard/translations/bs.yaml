@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Nivo zapisnika
+    description: >-
+      Kontrolira nivo izlaza zapisnika aplikacije i može se promijeniti da bude
+      više ili manje detaljan, što može biti korisno kada se suočavate s
+      nepoznatim problemom. Svaki nivo automatski uključuje poruke ozbiljnijeg
+      nivoa.
+  ssl:
+    name: SSL
+    description: >-
+      Omogućava/onemogućava šifrirani SSL (HTTPS) za direktan pristup
+      aplikaciji. Ova postavka nema utjecaja na uslugu Ingress.
+  certfile:
+    name: Datoteka certifikata
+    description: >-
+      Datoteka certifikata koja se koristi za SSL. Datoteka mora biti pohranjena
+      u direktoriju `/ssl/`.
+  keyfile:
+    name: Datoteka privatnog ključa
+    description: >-
+      Datoteka privatnog ključa koja se koristi za SSL. Datoteka mora biti
+      pohranjena u direktoriju `/ssl/`.
+  leave_front_door_open:
+    name: Ostavi ulazna vrata otvorena
+    description: >-
+      Onemogućava autentifikaciju na AdGuard Home kada je omogućeno. Snažno
+      savjetujemo da ovo ne omogućavate, čak ni na internoj mreži. Koristite na
+      vlastitu odgovornost!
+network:
+  53/udp:
+    description: Port DNS servera
+  80/tcp:
+    description: Web sučelje (nije potrebno za Ingress)

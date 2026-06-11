@@ -1,0 +1,36 @@
+---
+configuration:
+  log_level:
+    name: Erregistro-maila
+    description: >-
+      Aplikazioak sortzen duen erregistro-irteeraren maila kontrolatzen du
+      eta zehatzagoa edo gutxiago izateko alda daiteke, ezezaguna den arazo
+      bati aurre egiten ari zarenean baliagarria izan daitekeena. Maila
+      bakoitzak automatikoki barne hartzen ditu maila larriago bateko
+      mezuak.
+  ssl:
+    name: SSL
+    description: >-
+      Aplikaziorako zuzeneko sarbiderako SSL (HTTPS) zifratua gaitzen/desgaitzen
+      du. Ezarpen honek ez du eraginik Ingress zerbitzuan.
+  certfile:
+    name: Ziurtagiri-fitxategia
+    description: >-
+      SSLrako erabiliko den ziurtagiri-fitxategia. Fitxategia `/ssl/`
+      direktorioan gorde behar da.
+  keyfile:
+    name: Gako pribatuaren fitxategia
+    description: >-
+      SSLrako erabiliko den gako pribatuaren fitxategia. Fitxategia `/ssl/`
+      direktorioan gorde behar da.
+  leave_front_door_open:
+    name: Utzi sarrerako atea irekita
+    description: >-
+      Gaituta dagoenean AdGuard Home-ko autentifikazioa desgaitzen du.
+      Biziki gomendatzen dugu hau ez gaitzea, barne-sare batean ere.
+      Erabili zeure ardurapean!
+network:
+  53/udp:
+    description: DNS zerbitzariaren ataka
+  80/tcp:
+    description: Web interfazea (ez da beharrezkoa Ingress-erako)

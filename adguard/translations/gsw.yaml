@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Log-Stuef
+    description: >-
+      Steueret d Stuef vom Log-Output vo de App und cha aagepasst werde, zum
+      meh oder weniger uusführlech sii, was nützlech cha sii, wenn me mit eme
+      unbekannte Problem z tüe het. Jedi Stuef beinhaltet automatisch d
+      Mäldige vo ere höchere Stuef.
+  ssl:
+    name: SSL
+    description: >-
+      Aktiviert/Deaktiviert verschlüsselets SSL (HTTPS) für e dräkte Zuegriff
+      uf d App. Die Iistellig het kei Uuswirkig uf de Ingress-Dienscht.
+  certfile:
+    name: Zertifikatsdatei
+    description: >-
+      D Zertifikatsdatei wo für SSL bruucht wird. D Datei mues im Verzeichnis
+      `/ssl/` gspeicheret sii.
+  keyfile:
+    name: Privati Schlüsseldatei
+    description: >-
+      D privat Schlüsseldatei wo für SSL bruucht wird. D Datei mues im
+      Verzeichnis `/ssl/` gspeicheret sii.
+  leave_front_door_open:
+    name: D Hustüer offe la
+    description: >-
+      Deaktiviert d Authentifizierig uf AdGuard Home, wenn s aktiviert isch.
+      Mir rate dringend dervo ab, das z aktiviere, sogar in eme intärne
+      Netzwärch. Uf eigeti Gfahr bruuche!
+network:
+  53/udp:
+    description: DNS-Server-Port
+  80/tcp:
+    description: Web-Oberflächi (nöd nötig für Ingress)

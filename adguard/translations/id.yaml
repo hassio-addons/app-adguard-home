@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Tingkat log
+    description: >-
+      Mengontrol tingkat keluaran log oleh aplikasi dan dapat diubah agar
+      lebih atau kurang terperinci, yang mungkin berguna saat Anda menangani
+      masalah yang tidak diketahui. Setiap tingkat secara otomatis menyertakan
+      pesan dari tingkat yang lebih parah.
+  ssl:
+    name: SSL
+    description: >-
+      Mengaktifkan/Menonaktifkan SSL terenkripsi (HTTPS) untuk akses langsung
+      ke aplikasi. Pengaturan ini tidak memengaruhi layanan Ingress.
+  certfile:
+    name: Berkas sertifikat
+    description: >-
+      Berkas sertifikat yang digunakan untuk SSL. Berkas harus disimpan di
+      direktori `/ssl/`.
+  keyfile:
+    name: Berkas kunci pribadi
+    description: >-
+      Berkas kunci pribadi yang digunakan untuk SSL. Berkas harus disimpan di
+      direktori `/ssl/`.
+  leave_front_door_open:
+    name: Biarkan pintu depan terbuka
+    description: >-
+      Menonaktifkan autentikasi pada AdGuard Home saat diaktifkan. Kami sangat
+      menyarankan untuk tidak mengaktifkan ini, bahkan pada jaringan internal.
+      Gunakan dengan risiko Anda sendiri!
+network:
+  53/udp:
+    description: Port server DNS
+  80/tcp:
+    description: Antarmuka web (tidak diperlukan untuk Ingress)

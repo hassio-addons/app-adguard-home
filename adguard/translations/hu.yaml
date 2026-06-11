@@ -1,0 +1,36 @@
+---
+configuration:
+  log_level:
+    name: Naplózási szint
+    description: >-
+      Az alkalmazás naplókimenetének szintjét szabályozza, és módosítható úgy,
+      hogy több vagy kevesebb információt tartalmazzon, ami hasznos lehet, ha
+      ismeretlen problémával foglalkozik. Minden szint automatikusan tartalmazza
+      a súlyosabb szint üzeneteit.
+  ssl:
+    name: SSL
+    description: >-
+      Engedélyezi/letiltja a titkosított SSL (HTTPS) használatát az alkalmazás
+      közvetlen eléréséhez. Ennek a beállításnak nincs hatása az Ingress
+      szolgáltatásra.
+  certfile:
+    name: Tanúsítványfájl
+    description: >-
+      Az SSL-hez használandó tanúsítványfájl. A fájlt a `/ssl/` könyvtárban
+      kell tárolni.
+  keyfile:
+    name: Privát kulcsfájl
+    description: >-
+      Az SSL-hez használandó privát kulcsfájl. A fájlt a `/ssl/` könyvtárban
+      kell tárolni.
+  leave_front_door_open:
+    name: Bejárati ajtó nyitva hagyása
+    description: >-
+      Letiltja a hitelesítést az AdGuard Home-on, ha engedélyezve van.
+      Nyomatékosan javasoljuk, hogy ne engedélyezze ezt, még belső hálózaton
+      sem. Csak saját felelősségre használja!
+network:
+  53/udp:
+    description: DNS-kiszolgáló port
+  80/tcp:
+    description: Webes felület (Ingress esetén nem szükséges)

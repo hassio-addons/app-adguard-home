@@ -1,0 +1,34 @@
+---
+configuration:
+  log_level:
+    name: Žurnāla līmenis
+    description: >-
+      Kontrolē lietotnes žurnāla izvades līmeni, un to var mainīt, lai tas būtu
+      vairāk vai mazāk detalizēts, kas var būt noderīgi, ja jūs saskaraties ar
+      nezināmu problēmu. Katrs līmenis automātiski ietver smagāka līmeņa
+      ziņojumus.
+  ssl:
+    name: SSL
+    description: >-
+      Iespējo/atspējo šifrētu SSL (HTTPS) tiešai piekļuvei lietotnei. Šim
+      iestatījumam nav ietekmes uz Ingress pakalpojumu.
+  certfile:
+    name: Sertifikāta fails
+    description: >-
+      Sertifikāta fails, ko izmantot SSL. Failam jābūt saglabātam
+      `/ssl/` direktorijā.
+  keyfile:
+    name: Privātās atslēgas fails
+    description: >-
+      Privātās atslēgas fails, ko izmantot SSL. Failam jābūt saglabātam
+      `/ssl/` direktorijā.
+  leave_front_door_open:
+    name: Atstāt priekšējās durvis atvērtas
+    description: >-
+      Iespējots atspējo autentifikāciju AdGuard Home. Mēs stingri iesakām to
+      neiespējot, pat iekšējā tīklā. Izmantojiet uz savu risku!
+network:
+  53/udp:
+    description: DNS servera ports
+  80/tcp:
+    description: Tīmekļa saskarne (nav nepieciešama Ingress)

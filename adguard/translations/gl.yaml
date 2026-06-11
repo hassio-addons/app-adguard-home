@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Nivel de rexistro
+    description: >-
+      Controla o nivel de saída do rexistro da aplicación e pode cambiarse
+      para ser máis ou menos detallado, o que pode ser útil cando estás a
+      tratar cun problema descoñecido. Cada nivel inclúe automaticamente as
+      mensaxes dun nivel máis grave.
+  ssl:
+    name: SSL
+    description: >-
+      Activa/Desactiva o SSL cifrado (HTTPS) para o acceso directo á
+      aplicación. Esta configuración non ten efecto sobre o servizo Ingress.
+  certfile:
+    name: Ficheiro de certificado
+    description: >-
+      O ficheiro de certificado a usar para SSL. O ficheiro debe gardarse no
+      directorio `/ssl/`.
+  keyfile:
+    name: Ficheiro de chave privada
+    description: >-
+      O ficheiro de chave privada a usar para SSL. O ficheiro debe gardarse no
+      directorio `/ssl/`.
+  leave_front_door_open:
+    name: Deixar a porta principal aberta
+    description: >-
+      Desactiva a autenticación en AdGuard Home cando está activado.
+      Recomendamos encarecidamente non activar isto, mesmo nunha rede interna.
+      Úsao baixo o teu propio risco!
+network:
+  53/udp:
+    description: Porto do servidor DNS
+  80/tcp:
+    description: Interface web (non requirida para Ingress)

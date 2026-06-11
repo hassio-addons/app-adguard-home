@@ -1,0 +1,35 @@
+---
+configuration:
+  log_level:
+    name: Raven beleženja
+    description: >-
+      Nadzoruje raven izpisa dnevnika aplikacije in jo je mogoče spremeniti,
+      da je bolj ali manj podrobna, kar je lahko koristno pri reševanju
+      neznane težave. Vsaka raven samodejno vključuje sporočila resnejše
+      ravni.
+  ssl:
+    name: SSL
+    description: >-
+      Omogoči/onemogoči šifriran SSL (HTTPS) za neposreden dostop do
+      aplikacije. Ta nastavitev ne vpliva na storitev Ingress.
+  certfile:
+    name: Datoteka potrdila
+    description: >-
+      Datoteka potrdila, ki se uporablja za SSL. Datoteka mora biti shranjena
+      v imeniku `/ssl/`.
+  keyfile:
+    name: Datoteka zasebnega ključa
+    description: >-
+      Datoteka zasebnega ključa, ki se uporablja za SSL. Datoteka mora biti
+      shranjena v imeniku `/ssl/`.
+  leave_front_door_open:
+    name: Pustite vhodna vrata odprta
+    description: >-
+      Ko je omogočeno, onemogoči preverjanje pristnosti v AdGuard Home.
+      Močno odsvetujemo, da to omogočite, tudi v notranjem omrežju. Uporaba
+      na lastno odgovornost!
+network:
+  53/udp:
+    description: Vrata strežnika DNS
+  80/tcp:
+    description: Spletni vmesnik (ni potreben za Ingress)

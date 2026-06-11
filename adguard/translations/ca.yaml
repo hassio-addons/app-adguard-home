@@ -1,0 +1,36 @@
+---
+configuration:
+  log_level:
+    name: Nivell de registre
+    description: >-
+      Controla el nivell de sortida del registre de l'aplicació i es pot
+      canviar perquè sigui més o menys detallat, cosa que pot ser útil quan
+      esteu tractant un problema desconegut. Cada nivell inclou automàticament
+      els missatges d'un nivell més greu.
+  ssl:
+    name: SSL
+    description: >-
+      Activa/desactiva l'SSL xifrat (HTTPS) per a l'accés directe a
+      l'aplicació. Aquesta configuració no té cap efecte sobre el servei
+      Ingress.
+  certfile:
+    name: Fitxer de certificat
+    description: >-
+      El fitxer de certificat que s'utilitzarà per a l'SSL. El fitxer s'ha
+      d'emmagatzemar al directori `/ssl/`.
+  keyfile:
+    name: Fitxer de clau privada
+    description: >-
+      El fitxer de clau privada que s'utilitzarà per a l'SSL. El fitxer s'ha
+      d'emmagatzemar al directori `/ssl/`.
+  leave_front_door_open:
+    name: Deixa la porta principal oberta
+    description: >-
+      Desactiva l'autenticació a AdGuard Home quan està activat. Us recomanem
+      fermament que no ho activeu, ni tan sols en una xarxa interna. Utilitzeu-lo
+      sota la vostra responsabilitat!
+network:
+  53/udp:
+    description: Port del servidor DNS
+  80/tcp:
+    description: Interfície web (no necessària per a Ingress)
