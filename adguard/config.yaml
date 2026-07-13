@@ -16,9 +16,11 @@ arch:
 init: false
 ports:
   53/udp: 53
+  853/tcp: null
   80/tcp: null
 ports_description:
   53/udp: DNS server port
+  853/tcp: DNS-over-TLS server port
   80/tcp: Web interface (Not required for Ingress)
 discovery:
   - adguard
