@@ -29,6 +29,6 @@ configuration:
       נגד הפעלת אפשרות זו, אפילו ברשת פנימית. השימוש על אחריותך בלבד!
 network:
   53/udp:
-    description: פתחת שרת DNS
+    description: פורט שרת DNS
   80/tcp:
     description: ממשק אינטרנט (לא נדרש עבור הטמעה)
