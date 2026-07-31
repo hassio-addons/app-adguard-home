@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:21.0.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:21.0.1
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -8,11 +8,11 @@ ARG BUILD_ARCH=amd64
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
-ARG ADGUARD_HOME_VERSION="v0.107.77"
+ARG ADGUARD_HOME_VERSION="v0.107.78"
 # hadolint ignore=DL3003,SC2155
 RUN \
     apk add --no-cache \
-        nginx=1.30.2-r1 \
+        nginx=1.30.4-r1 \
         yq-go=4.53.3-r0 \
     \
     && if [[ "${BUILD_ARCH}" = "aarch64" ]]; then ARCH="arm64"; fi \
