@@ -60,7 +60,7 @@ function has_usable_address() {
     for interface in $(bashio::network.interfaces); do
         for host in $(bashio::network.ipv4_address "${interface}"); do
             # 169.254.0.0/16 according to RFC 3927 -> Local link. Not usable.
-            if (( "${host%%.*}" == 169 )); then
+            if [[ "${host}" == 169.254.* ]]; then
                 continue
             fi
             return "${__BASHIO_EXIT_OK}"
@@ -146,11 +146,8 @@ for host in "${hosts[@]}"; do
 
     if [[ "${host}" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 
-      # IPv4
-      part="${host%%.*}"
-
       # 169.254.0.0/16 according to RFC 3927 -> Local link. Skip it
-      if (( part == 169 )); then
+      if [[ "${host}" == 169.254.* ]]; then
         continue
       fi
     fi
