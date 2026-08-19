@@ -6,6 +6,9 @@
 # Handles configuration
 # ==============================================================================
 readonly CONFIG="/data/adguard/AdGuardHome.yaml"
+readonly NETWORK_WAIT_SECONDS=300
+readonly NETWORK_POLL_SECONDS=5
+declare network_ready="false"
 declare schema_version
 declare -a interfaces
 declare -a hosts
@@ -47,6 +50,58 @@ else
     # No idea what the schema is, might be an old config?
     # Ensure dummy value exists so AdGuard doesn't kill itself during migration
     yq --inplace e '.dns.bind_host = "127.0.0.1"' "${CONFIG}"
+fi
+
+# Returns successfully as soon as any interface reports a usable IPv4 address.
+function has_usable_address() {
+    local interface
+    local host
+
+    for interface in $(bashio::network.interfaces); do
+        for host in $(bashio::network.ipv4_address "${interface}"); do
+            # 169.254.0.0/16 according to RFC 3927 -> Local link. Not usable.
+            if (( "${host%%.*}" == 169 )); then
+                continue
+            fi
+            return "${__BASHIO_EXIT_OK}"
+        done
+    done
+
+    return "${__BASHIO_EXIT_NOK}"
+}
+
+# Wait for the host network to become available.
+#
+# The bind hosts below are collected once, right now. On a (re)boot this app
+# can start before an interface has been handed its address, for example while
+# it is still waiting on a DHCP lease. An address that only shows up later is
+# never picked up, leaving AdGuard Home listening on localhost alone until the
+# app is restarted by hand.
+for (( waited = 0; waited < NETWORK_WAIT_SECONDS; waited += NETWORK_POLL_SECONDS )); do
+    if has_usable_address; then
+        network_ready="true"
+        break
+    fi
+
+    if (( waited == 0 )); then
+        bashio::log.info "Waiting for the host network to become available..."
+    fi
+
+    sleep "${NETWORK_POLL_SECONDS}"
+
+    # Network information is cached, so drop it before the next round.
+    # Without this, every retry re-reads the same empty answer instead of
+    # asking the Supervisor again.
+    bashio::cache.flush_all
+done
+
+if ! bashio::var.true "${network_ready}"; then
+    bashio::log.warning
+    bashio::log.warning "No usable IPv4 address found after ${NETWORK_WAIT_SECONDS} seconds."
+    bashio::log.warning "AdGuard Home will only listen on the addresses known"
+    bashio::log.warning "right now. If clients cannot reach it, restart this app"
+    bashio::log.warning "once the network is up."
+    bashio::log.warning
 fi
 
 # Collect IP addresses from interfaces
