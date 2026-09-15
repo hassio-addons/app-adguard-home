@@ -8,6 +8,8 @@ ingress: true
 ingress_port: 0
 ingress_stream: true
 panel_icon: mdi:shield-check
+privileged:
+  - NET_RAW
 startup: services
 homeassistant: 0.113.2
 arch:
