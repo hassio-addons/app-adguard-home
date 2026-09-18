@@ -6,6 +6,7 @@
 # Handles configuration
 # ==============================================================================
 readonly CONFIG="/data/adguard/AdGuardHome.yaml"
+readonly CONFIG_BACKUP="${CONFIG}.bak"
 readonly NETWORK_WAIT_SECONDS=300
 readonly NETWORK_POLL_SECONDS=5
 declare network_ready="false"
@@ -16,9 +17,46 @@ declare part
 declare fd
 declare a2
 
+# Returns successfully when the given file looks like a usable configuration.
+function config_is_valid() {
+    local file="${1}"
+
+    bashio::fs.file_exists "${file}" || return "${__BASHIO_EXIT_NOK}"
+    [[ -s "${file}" ]] || return "${__BASHIO_EXIT_NOK}"
+    yq e --exit-status '.dns | type == "!!map"' "${file}" > /dev/null 2>&1
+}
+
 if ! bashio::fs.file_exists "${CONFIG}"; then
     mkdir -p /data/adguard
     cp /etc/adguard/AdGuardHome.yaml "${CONFIG}"
+fi
+
+# The configuration can end up empty or truncated, for example after a power
+# outage. AdGuard Home would then silently start with all defaults, dropping
+# the upstream DNS servers, filters and users configured before. Fall back to
+# the copy taken during the previous start instead.
+if ! config_is_valid "${CONFIG}"; then
+    if ! config_is_valid "${CONFIG_BACKUP}"; then
+        bashio::log.fatal
+        bashio::log.fatal "The AdGuard Home configuration file is damaged and"
+        bashio::log.fatal "no backup is available to restore it from:"
+        bashio::log.fatal
+        bashio::log.fatal "  ${CONFIG}"
+        bashio::log.fatal
+        bashio::log.fatal "Repair or remove the file, then restart this app."
+        bashio::log.fatal "Removing it starts AdGuard Home with a fresh"
+        bashio::log.fatal "configuration."
+        bashio::log.fatal
+        bashio::exit.nok
+    fi
+
+    bashio::log.warning
+    bashio::log.warning "The AdGuard Home configuration file is damaged."
+    bashio::log.warning "Restoring the copy taken during the previous start"
+    bashio::log.warning "of this app. Changes made since then may be lost."
+    bashio::log.warning
+    cp "${CONFIG_BACKUP}" "${CONFIG}" \
+        || bashio::exit.nok 'Failed restoring the AdGuardHome configuration'
 fi
 
 port=$(bashio::app.port "53/udp") \
@@ -171,3 +209,7 @@ for host in "${hosts[@]}"; do
       '.dns.bind_hosts += [env(host)]' "${CONFIG}" \
         || bashio::exit.nok 'Failed updating AdGuardHome host'
 done
+
+# Keep a copy of this known good configuration, for the check above.
+cp "${CONFIG}" "${CONFIG_BACKUP}" \
+    || bashio::log.warning "Failed creating a backup of the AdGuardHome configuration"
