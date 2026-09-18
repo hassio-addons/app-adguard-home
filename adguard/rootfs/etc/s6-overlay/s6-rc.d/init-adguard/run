@@ -25,6 +25,21 @@ port=$(bashio::app.port "53/udp") \
   yq e --inplace '.dns.port = env(port)' "${CONFIG}" \
     || bashio::exit.nok 'Failed updating AdGuardHome DNS port'
 
+# Hosts served for blocked safe browsing and parental control requests.
+# AdGuard Home has no UI for these, so they are exposed as app options.
+# Only applied when set, an unset option leaves the current value untouched.
+if bashio::config.has_value 'safebrowsing_block_host'; then
+    host=$(bashio::config 'safebrowsing_block_host') \
+      yq e --inplace '.dns.safebrowsing_block_host = env(host)' "${CONFIG}" \
+        || bashio::exit.nok 'Failed updating AdGuardHome safe browsing block host'
+fi
+
+if bashio::config.has_value 'parental_block_host'; then
+    host=$(bashio::config 'parental_block_host') \
+      yq e --inplace '.dns.parental_block_host = env(host)' "${CONFIG}" \
+        || bashio::exit.nok 'Failed updating AdGuardHome parental block host'
+fi
+
 
 # Bump schema version in case this is an upgrade path
 schema_version=$(yq e '.schema_version // ""' "${CONFIG}")

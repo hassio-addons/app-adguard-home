@@ -40,5 +40,7 @@ schema:
   certfile: str
   keyfile: str
   leave_front_door_open: bool?
+  safebrowsing_block_host: str?
+  parental_block_host: str?
 backup_exclude:
   - "*/adguard/data/querylog.*"
