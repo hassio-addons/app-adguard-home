@@ -27,6 +27,18 @@ configuration:
     description: >-
       משבית אימות ב-AdGuard Home כאשר מופעל. אנו ממליצים בחום
       נגד הפעלת אפשרות זו, אפילו ברשת פנימית. השימוש על אחריותך בלבד!
+  safebrowsing_block_host:
+    name: גלישה בטוחה - חסימת מארח
+    description: >-
+      שם המארח שיחליף את התשובה עבור בקשות שנחסמו על ידי גלישה בטוחה
+      ברירת המחדל היא standard-block.dns.adguard.com, שמכווין לדף חסימה
+      חיצוני של AdGuard.
+  parental_block_host:
+    name: בקרת הורים - חסימת מארח
+    description: >-
+      שם המארח שיחליף את התשובה עבור בקשות שנחסמו על ידי בקרת הורים
+      ברירת המחדל היא family-block.dns.adguard.com, שמכווין לדף חסימה
+      חיצוני של AdGuard.
 network:
   53/udp: פורט שרת DNS
   80/tcp: ממשק אינטרנט (לא נדרש עבור הטמעה)
