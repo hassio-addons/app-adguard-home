@@ -34,13 +34,11 @@ options:
   ssl: true
   certfile: fullchain.pem
   keyfile: privkey.pem
-  wide_layout: false
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   ssl: bool
   certfile: str
   keyfile: str
-  wide_layout: bool
   leave_front_door_open: bool?
   safebrowsing_block_host: str?
   parental_block_host: str?

@@ -25,13 +25,6 @@ bashio::var.json \
         -template /etc/nginx/templates/upstream.gtpl \
         -out /etc/nginx/includes/upstream.conf
 
-# Generate shared web interface configuration
-bashio::var.json \
-    wide_layout "^$(bashio::config 'wide_layout')" \
-    | tempio \
-        -template /etc/nginx/templates/server_params.gtpl \
-        -out /etc/nginx/includes/server_params.conf
-
 # Generate Ingress configuration
 bashio::var.json \
     interface "$(bashio::app.ip_address)" \

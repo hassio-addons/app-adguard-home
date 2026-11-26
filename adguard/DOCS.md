@@ -86,14 +86,6 @@ The private key file to use for SSL.
 
 **Note**: _The file MUST be stored in `/ssl/`, which is the default_
 
-### Option: `wide_layout`
-
-Set to `true` to reduce the outer margins on AdGuard Home pages to roughly
-one quarter of their original size. This leaves more room for wide tables,
-such as Persistent Clients, without making the pages edge to edge. It applies
-to both the Home Assistant sidebar and the direct web interface. The default
-is `false`.
-
 ### Option: `leave_front_door_open`
 
 Adding this option to the app configuration allows you to disable
